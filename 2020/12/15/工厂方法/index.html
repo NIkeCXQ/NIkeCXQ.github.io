@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="-设计模式,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="工厂方法模式 工厂方法模式是一种创建型设计模式，其在父类中提供了一个创建对象的方法，允许子类决定实例化对象的类型。  解决方案​    工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用（使用new运算符）。不用担心，对象仍将通过new运算符创建，只是该运算符在工厂方法中调用罢了。工厂方法返回的对象通常被称为“产品”。 ​    乍看之下，这种更改可能毫无意义：我们只是改变了程序中调">
+<meta name="keywords" content="-设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工厂方法模式">
+<meta property="og:url" content="http://yoursite.com/2020/12/15/工厂方法/index.html">
+<meta property="og:site_name" content="Alaska.C">
+<meta property="og:description" content="工厂方法模式 工厂方法模式是一种创建型设计模式，其在父类中提供了一个创建对象的方法，允许子类决定实例化对象的类型。  解决方案​    工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用（使用new运算符）。不用担心，对象仍将通过new运算符创建，只是该运算符在工厂方法中调用罢了。工厂方法返回的对象通常被称为“产品”。 ​    乍看之下，这种更改可能毫无意义：我们只是改变了程序中调">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2020/12/15/工厂方法/..%5Cimages%5C%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png">
+<meta property="og:updated_time" content="2020-12-15T10:18:16.983Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工厂方法模式">
+<meta name="twitter:description" content="工厂方法模式 工厂方法模式是一种创建型设计模式，其在父类中提供了一个创建对象的方法，允许子类决定实例化对象的类型。  解决方案​    工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用（使用new运算符）。不用担心，对象仍将通过new运算符创建，只是该运算符在工厂方法中调用罢了。工厂方法返回的对象通常被称为“产品”。 ​    乍看之下，这种更改可能毫无意义：我们只是改变了程序中调">
+<meta name="twitter:image" content="http://yoursite.com/2020/12/15/工厂方法/..%5Cimages%5C%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/12/15/工厂方法/">
+
+
+
+
+
+  <title>工厂方法模式 | Alaska.C</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+     <a href="https://github.com/NIkeCXQ" class="github-corner" aria-label="View source on GitHub">
+	<svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>		
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Alaska.C</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/15/工厂方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NIKE Cao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Alaska.C">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">工厂方法模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-15T13:22:07+08:00">
+                2020-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h1><blockquote>
+<p>工厂方法模式是一种创建型设计模式，其在父类中提供了一个创建对象的方法，允许子类决定实例化对象的类型。</p>
+</blockquote>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>​    工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用（使用<strong>new</strong>运算符）。不用担心，对象仍将通过<strong>new</strong>运算符创建，只是该运算符在工厂方法中调用罢了。工厂方法返回的对象通常被称为“产品”。</p>
+<p>​    乍看之下，这种更改可能毫无意义：我们只是改变了程序中调用构造函数的位置而已。但是，仔细想一下，现在你可以在子类（<strong>工厂子类</strong>）中重写工厂方法，从而改变其创建产品的类型。</p>
+<p>​    但是有一点需要注意：仅当这些产品具有共同的基类或者接口时，子类才能返回不同类型的产品，同时基类(<strong>工厂基类</strong>）中的工厂方法还应该将其返回类型声明为这一共有接口。</p>
+<h2 id="工厂方法模式结构"><a href="#工厂方法模式结构" class="headerlink" title="工厂方法模式结构"></a>工厂方法模式结构</h2><p><img src="..%5Cimages%5C%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png" alt></p>
+<ol>
+<li><p><strong>产品</strong>（Product）将会对接口进行声明。对于所有由创建者及其子类构建的对象，这些接口都是通用的。</p>
+</li>
+<li><p><strong>具体产品</strong>（Concrete Products）是产品接口不同实现。</p>
+</li>
+<li><p><strong>创建者</strong>（Creator）类声明返回产品对象的工厂方法。该方法的返回对象类型必须与产品接口相匹配</p>
+<p>你可以将工厂方法声明为抽象方法，强制要求每个子类以不同方式实现该方法。或者，你可以在基础工厂方法中返回默认产品类型。</p>
+<p><strong>PS</strong>，尽管它的名字叫创建者，但是它最主要的职责并不是创建产品。一般来说，<strong>创建者类包含一些与产品相关的核心业务逻辑</strong>。工厂方法将这些逻辑处理从具体产品类中分离出来。打个比方，大型软件开发公司拥有程序员培训部门，但是，这些公司的主要工作还是编写代码，而非生产程序员。</p>
+</li>
+<li><p><strong>具体创建者</strong>（Concrete Creators）将会重写基础工厂方法，使其返回同类型的产品。</p>
+<p><strong>PS</strong>，并不一定每次调用工厂方法都会创建新的实例。工厂方法可以返回缓存、对象池或者其他来源已有对象（例如spring容器）</p>
+</li>
+</ol>
+<h2 id="工厂方法模式适合的应用场景"><a href="#工厂方法模式适合的应用场景" class="headerlink" title="工厂方法模式适合的应用场景"></a>工厂方法模式适合的应用场景</h2><ul>
+<li><p><strong>当你在编写代码过程中，如果无法预知对象确切类别及其依赖关系时，可使用工厂方法模式。</strong></p>
+<p>工厂方法将创建产品的代码与实际使用产品的代码分离，从而在不影响其他代码的情况下扩展创建部分代码。</p>
+<p>例如：如果向应用中添加一种新产品，你只需要开发新的创建者子类，然后重写其工厂方法即可。</p>
+</li>
+<li><p><strong>如果你希望用户能扩展你软件库或框架的内部组件，可使用工厂方法</strong></p>
+<p>继承可能是扩展软件库或框架默认行为的最简单方法。但是当你使用子类替代标准组件时，框架如何识别出子类？</p>
+<p>解决方案是各框架中构造组件的代码集中到单个工厂方法中，并在继承组件之外允许任何人对该方法进行重写。</p>
+<p><strong>例如：</strong>假设你使用开源UI框架编写自己的应用。你希望在应用中使用圆形按钮，但是原框架仅支持矩形按钮。你可以使用<code>圆形按钮 RoundButton</code>子类来继承标准的<code>按钮 Button</code>类。但是，你需要告诉<code>UI框架 UIFramework</code>类使用新的子类按钮代替默认按钮。</p>
+<p>为了实现这个功能，你可以根据基础框架类开发子类<code>圆形按钮工厂 UIWithRoundButtons</code>,并且重写其<code>CreateButton 创建按钮</code>方法。基类中的方法返回<code>按钮</code>对象，而你开发的子类返回<code>圆形按钮</code>对象，现在，你就可以使用<code>圆形按钮 UI</code>类代替<code>UI框架</code>类。就这门简单！</p>
+</li>
+<li><p><strong>如果你希望复用现有对象来节省系统资源，而不是每次重新创建对象，可是使用工厂方法。</strong></p>
+<p>在处理大型资源密集型对象（比如数据库链接、文件系统和网络资源）时，你会经常碰到这种资源请求。</p>
+<p>让我们思考复用现有对象的方法：</p>
+<ol>
+<li>首先，你需要创建存储空间来存放所有已创建的对象。</li>
+<li>当他人请求一个对象时，程序将在对象池搜索可用对象。</li>
+<li>然后将其返回给客户端代码。</li>
+<li>如果没有可用对象，程序则创建一个新对象（并将其添加到对象池中）</li>
+</ol>
+<p>这些代码可不少！而且它们必须位于一处，这样才能确保重复代码不会污染程序。</p>
+<p>可能最显而易见，也是最方便的方式，就是将这些代码放置在我们试图重用的对象类的构造函数中。但是从定义上来讲，构造函数始终返回的是<strong>新对象</strong>，其无法返回现有实例。</p>
+<p>因此，你需要有一个既能够创建新对象，又可以重用现有对象的普通方法。这同上去和工厂方法非常相像。</p>
+</li>
+</ul>
+<h2 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h2><ol>
+<li><p>让所有产品都遵循同一接口。该接口必须声明<strong>对所有产品都有意义的方法</strong>。</p>
+</li>
+<li><p>在创建类中添加一个空的工厂方法。该方法返回类型必须遵循通用的产品接口。</p>
+</li>
+<li><p>在创建者（需要获取产品者）代码中找到对于产品构造函数所有引用（new xxx）。将他们依次替换为对于工厂方法的调用，同时将创建产品的代码移入工厂方法。你可能需要在工厂方法中添加零时参数来控制返回的产品类型。</p>
+<p>工厂方法的代码看上去可能非常糟糕。其中可能会有复杂的<code>Switch 分支</code>运算符，用于选择各种需要实例化的产品类。但是不要担心，我们很快将修复这个问题。</p>
+</li>
+<li><p>现在，为工厂方法中的每种产品编写一个创建者子类，然后在子类中重写工厂方法，并将基础方法中的相关创建代码移动到工厂方法中。</p>
+</li>
+<li><p>如果应用中的产品类型太多，那么为每个产品创建子类并无太大必要，这时你也可以在子类中复用基类的控制参数。</p>
+<p><strong>例如：</strong>设想你有以下一些层次结构的类，基类<code>邮件</code>及其子类<code>航空邮件</code>和<code>陆路邮件</code>；<code>运输</code>及其子类<code>飞机</code>、<code>卡车</code>和<code>火车</code>。<code>航空邮件</code>仅使用<code>飞机</code>对象，而<code>陆路邮件</code>则会使用<code>卡车</code>和<code>火车</code>对象。你可以编写一个新的子类（例如<code>火车邮件</code>）来处理这两种情况，但是还有其他备选方案。客户端代码可以给<code>陆路邮件</code>类传递一个参数，用于控制其希望活得的产品。</p>
+</li>
+<li><p>如果代码经过上述移动后，基础工厂方法中已经没有任何代码，你可以将其转变为抽象类。如果基础工厂方法中还有其他语句，你可以将其设置为该方法的默认行为。</p>
+</li>
+</ol>
+<h2 id="工厂方法模式优缺点"><a href="#工厂方法模式优缺点" class="headerlink" title="工厂方法模式优缺点"></a>工厂方法模式优缺点</h2><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>✅单一职责原则。你可以将产品创建代码放在程序单一位置，从而使得代码容易维护</td>
+<td></td>
+<td>❌应用工厂方法模式需要引入许多新的子类，代码可能会因此变得复杂。最好的情况是将该模式引入创建者类的现有层次结构中。</td>
+</tr>
+<tr>
+<td>✅开闭原则。无需更改现有客户端代码，你可以在程序中引入新的产品类型</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>✅你可以避免创建者和具体产品间的紧密耦合</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="与其他模式的关系"><a href="#与其他模式的关系" class="headerlink" title="与其他模式的关系"></a>与其他模式的关系</h2><ul>
+<li>在许多设计工作的初期都会使用<strong>工厂方法模式</strong>（较为简单，而且更方便地通过子类进行定制），随后演化为使用<strong>抽象工厂模式</strong>、<strong>原型模式</strong>或者<strong>生成器模式</strong>（更灵活但是更加复杂）。</li>
+<li><strong>抽象工厂模式</strong>通常基于一组<strong>工厂方法</strong>，但你也可以使用原型模式来生成这些类的方法。</li>
+<li>你可以同时使用<strong>工厂方法</strong>和<strong>迭代器模式</strong>来让子类集合返回不同类型的迭代器，并使得迭代器与集合相匹配。</li>
+<li><strong>原型</strong>并不是基于继承，因此没有继承的缺点。另一方面，原型需要对被复制对象进行复杂的初始化。<strong>工厂方法</strong>基于继承，但是它不需要初始化步骤。</li>
+<li><strong>工厂方法</strong>是<strong>模板方法模式</strong>的一种特殊形式。同时，工厂方法作为一个大型模板方法中的一个步骤。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/" rel="tag"># -设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/24/fabric环境搭建/" rel="next" title="fabric环境搭建">
+                <i class="fa fa-chevron-left"></i> fabric环境搭建
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/15/抽象工厂模式/" rel="prev" title="抽象方法模式">
+                抽象方法模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="NIKE Cao">
+            
+              <p class="site-author-name" itemprop="name">NIKE Cao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/NIkeCXQ" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="Title" target="_blank">Title</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#工厂方法模式"><span class="nav-number">1.</span> <span class="nav-text">工厂方法模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.1.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式结构"><span class="nav-number">1.2.</span> <span class="nav-text">工厂方法模式结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式适合的应用场景"><span class="nav-number">1.3.</span> <span class="nav-text">工厂方法模式适合的应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现方式"><span class="nav-number">1.4.</span> <span class="nav-text">实现方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂方法模式优缺点"><span class="nav-number">1.5.</span> <span class="nav-text">工厂方法模式优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与其他模式的关系"><span class="nav-number">1.6.</span> <span class="nav-text">与其他模式的关系</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NIKE Cao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
