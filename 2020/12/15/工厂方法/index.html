@@ -88,7 +88,7 @@
 <meta property="og:description" content="工厂方法模式 工厂方法模式是一种创建型设计模式，其在父类中提供了一个创建对象的方法，允许子类决定实例化对象的类型。  解决方案​    工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用（使用new运算符）。不用担心，对象仍将通过new运算符创建，只是该运算符在工厂方法中调用罢了。工厂方法返回的对象通常被称为“产品”。 ​    乍看之下，这种更改可能毫无意义：我们只是改变了程序中调">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2020/12/15/工厂方法/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%5C%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png">
-<meta property="og:updated_time" content="2020-12-16T02:19:07.481Z">
+<meta property="og:updated_time" content="2020-12-16T02:53:09.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工厂方法模式">
 <meta name="twitter:description" content="工厂方法模式 工厂方法模式是一种创建型设计模式，其在父类中提供了一个创建对象的方法，允许子类决定实例化对象的类型。  解决方案​    工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用（使用new运算符）。不用担心，对象仍将通过new运算符创建，只是该运算符在工厂方法中调用罢了。工厂方法返回的对象通常被称为“产品”。 ​    乍看之下，这种更改可能毫无意义：我们只是改变了程序中调">
@@ -331,7 +331,7 @@
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>​    工厂方法模式建议使用特殊的工厂方法代替对于对象构造函数的直接调用（使用<strong>new</strong>运算符）。不用担心，对象仍将通过<strong>new</strong>运算符创建，只是该运算符在工厂方法中调用罢了。工厂方法返回的对象通常被称为“产品”。</p>
 <p>​    乍看之下，这种更改可能毫无意义：我们只是改变了程序中调用构造函数的位置而已。但是，仔细想一下，现在你可以在子类（<strong>工厂子类</strong>）中重写工厂方法，从而改变其创建产品的类型。</p>
 <p>​    但是有一点需要注意：仅当这些产品具有共同的基类或者接口时，子类才能返回不同类型的产品，同时基类(<strong>工厂基类</strong>）中的工厂方法还应该将其返回类型声明为这一共有接口。</p>
-<h2 id="工厂方法模式结构"><a href="#工厂方法模式结构" class="headerlink" title="工厂方法模式结构"></a>工厂方法模式结构</h2><p><img src="/2020/12/15/工厂方法/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%5C%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png" alt></p>
+<h2 id="工厂方法模式结构"><a href="#工厂方法模式结构" class="headerlink" title="工厂方法模式结构"></a>工厂方法模式结构</h2><p><img src="//yoursite.com/2020/12/15/工厂方法/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%5C%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png" alt></p>
 <ol>
 <li><p><strong>产品</strong>（Product）将会对接口进行声明。对于所有由创建者及其子类构建的对象，这些接口都是通用的。</p>
 </li>
