@@ -84,15 +84,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="抽象方法模式">
 <meta property="og:url" content="http://yoursite.com/2020/12/15/抽象工厂模式/index.html">
-<meta property="og:site_name" content="Alaska.C">
+<meta property="og:site_name" content="匆匆二十载，浮心未净。">
 <meta property="og:description" content="抽象工厂模式 抽象工厂模式是一种创建型设计模式，它能创建一些列相关对象，而无需制定其具体类  问题假设你正在开发一款家具商店模拟器。 你的代码中包括一些类， 用于表示：  一系列相关产品， 例如 椅子Chair 、  沙发Sofa和 咖啡桌Coffee­Table 。 系列产品的不同变体。 例如， 你可以使用 现代Modern 、  维多利亚Victorian 、  装饰风艺术Art­Deco等风">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2020/12/15/抽象工厂模式/..%5Cimages%5C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png">
-<meta property="og:updated_time" content="2020-12-15T10:19:13.920Z">
+<meta property="og:image" content="http://yoursite.com/2020/12/15/抽象工厂模式/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%5C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png">
+<meta property="og:updated_time" content="2020-12-16T02:19:33.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抽象方法模式">
 <meta name="twitter:description" content="抽象工厂模式 抽象工厂模式是一种创建型设计模式，它能创建一些列相关对象，而无需制定其具体类  问题假设你正在开发一款家具商店模拟器。 你的代码中包括一些类， 用于表示：  一系列相关产品， 例如 椅子Chair 、  沙发Sofa和 咖啡桌Coffee­Table 。 系列产品的不同变体。 例如， 你可以使用 现代Modern 、  维多利亚Victorian 、  装饰风艺术Art­Deco等风">
-<meta name="twitter:image" content="http://yoursite.com/2020/12/15/抽象工厂模式/..%5Cimages%5C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/12/15/抽象工厂模式/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%5C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>抽象方法模式 | Alaska.C</title>
+  <title>抽象方法模式 | 匆匆二十载，浮心未净。</title>
   
 
 
@@ -161,7 +161,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Alaska.C</span>
+        <span class="site-title">匆匆二十载，浮心未净。</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -261,13 +261,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/15/抽象工厂模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="NIKE Cao">
+      <meta itemprop="name" content="Xingqi Cao">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Alaska.C">
+      <meta itemprop="name" content="匆匆二十载，浮心未净。">
     </span>
 
     
@@ -350,7 +350,7 @@
 </blockquote>
 <p>假设客户端想要工厂创建一把椅子。客户端无需了解工程类，也不用管工程类创建出的椅子类型。无论是现代风格还是维多利亚风格的椅子，对于客户端来说没有风别，它只需调用<code>抽象椅子</code>接口就可以了。这样一来，客户端只需要知道椅子以某种方式实现了<code>sitOn</code><strong>坐下</strong>方法就足够了。此外，无论工厂返回的是何种椅子变体，它都会和由同一工厂对象创建的沙发或咖啡桌风格一致。</p>
 <p>最后一点说明：如果客户端仅接触抽象接口，那么谁来创建实际的工厂对象呢？一般情况下，应用程序会在初始化阶段创建具体工厂对象。而在此之前，应用程序必须根据配置文件或环境设定选择工厂类别。</p>
-<h2 id="抽象工厂模式结构"><a href="#抽象工厂模式结构" class="headerlink" title="抽象工厂模式结构"></a>抽象工厂模式结构</h2><p><img src="..%5Cimages%5C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png" alt></p>
+<h2 id="抽象工厂模式结构"><a href="#抽象工厂模式结构" class="headerlink" title="抽象工厂模式结构"></a>抽象工厂模式结构</h2><p><img src="/2020/12/15/抽象工厂模式/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%5C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84.png" alt></p>
 <ol>
 <li><strong>抽象产品</strong>（Abstract Product）为构成系列产品的一组不同但相关的产品声明接口。</li>
 <li><strong>具体产品</strong>（Concrete Product）是抽象产品的多种不同类型实现。所有变体都必须实现相应的抽象产品。</li>
@@ -521,9 +521,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="NIKE Cao">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Xingqi Cao">
             
-              <p class="site-author-name" itemprop="name">NIKE Cao</p>
+              <p class="site-author-name" itemprop="name">Xingqi Cao</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -534,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -547,7 +547,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -628,7 +628,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">NIKE Cao</span>
+  <span class="author" itemprop="copyrightHolder">Xingqi Cao</span>
 
   
 </div>
